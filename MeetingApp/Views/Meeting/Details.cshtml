@@ -1,0 +1,25 @@
+@model UserInfo
+@{
+  ViewBag.Title = "Kullanıcı Detay";
+}
+<main class="text-center">
+  @{
+    var className = Model.WillAttend ? "badge text-bg-primary" : "badge text-bg-danger";
+    var attendanceText = Model.WillAttend ? "Katılıyor" : "Katılmıyor";
+    var btnClass = Model.WillAttend ? "btn-outline-success" : "btn-outline-danger";
+  }
+
+  <h1 class="h4">Kullanıcı Detay</h1>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">İsim: @Model.Name</h5>
+      <p class="@className">@attendanceText</p>
+      <p class="card-text"> Email: @Model.Email</p>
+      <p class="card-text">Telefon: @Model.Phone</p>
+    </div>
+  </div>
+
+
+  <a class="btn @btnClass mt-3" href="/Meeting/List">Listeye Geri Dön</a>
+
+</main>
